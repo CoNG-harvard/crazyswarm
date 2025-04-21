@@ -16,12 +16,13 @@ def main():
     # cf.setParam('ctrlMel/kR_xy', 70000)
     timeHelper.sleep(0.5)
     cf.takeoff(targetHeight=0.5, duration=TAKEOFF_DURATION)
-    print("press button to continue...")
+    print("press button to switch")
     swarm.input.waitUntilButtonPressed()
+    cf.setParm('stabilizer/controller', 5)
     # timeHelper.sleep(7)
     cf.land(targetHeight=0.05, duration=TAKEOFF_DURATION)
     timeHelper.sleep(TAKEOFF_DURATION)
-    # cf.setParam('usd/logging', 0)
+    cf.setParam('usd/logging', 0)
 
 def debug():
     swarm = Crazyswarm()
